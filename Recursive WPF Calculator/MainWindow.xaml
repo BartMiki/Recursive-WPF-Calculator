@@ -21,8 +21,8 @@
             <TextBlock FontSize="20">
                 Result:
             </TextBlock>
-            <TextBlock x:Name="equationOutput" FontSize="20" TextAlignment="Center">
-                ((54+34)*(23-12))-(5^2)
+            <TextBlock Margin="10,0" x:Name="equationOutput" FontSize="20" TextAlignment="Center">
+
             </TextBlock>
         </StackPanel>
         <Expander>
@@ -30,7 +30,10 @@
                 <Label FontSize="15">Constant declarations</Label>
             </Expander.Header>
             <StackPanel>
-                <Button x:Name="NewConstantButton" Click="NewConstantButton_Click">Add new Constant</Button>
+                <UniformGrid Columns="2">
+                    <Button x:Name="NewConstantButton" Click="NewConstantButton_Click">Add new Constant</Button>
+                    <Button x:Name="RemoveAllEmptyConstatnsButton" Click="RemoveAllEmptyConstatnsButton_Click">Remove empty Constants</Button>
+                </UniformGrid>
                 <StackPanel x:Name="ConstantsContainer"/>
             </StackPanel>
         </Expander>

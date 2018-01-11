@@ -67,5 +67,18 @@ namespace Recursive_WPF_Calculator
             TextBoxs.Add(tb);
             ConstantsContainer.Children.Add(tb);
         }
+
+        private void RemoveAllEmptyConstatnsButton_Click(object sender, RoutedEventArgs e)
+        {
+
+            foreach(var toRemove in TextBoxs)
+            {
+                if(toRemove.Text.Trim() == "")
+                {
+                    ConstantsContainer.Children.Remove(toRemove);
+                }
+            }
+            TextBoxs.RemoveAll((toRemove) => { return toRemove.Text.Trim() == ""; });
+        }
     }
 }
