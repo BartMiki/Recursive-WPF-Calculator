@@ -6,7 +6,23 @@
         xmlns:local="clr-namespace:Recursive_WPF_Calculator"
         mc:Ignorable="d"
         Title="MainWindow" Height="350" Width="525">
-    <Grid>
-        
-    </Grid>
+    <Window.Resources>
+    </Window.Resources>
+    <StackPanel Margin="5">
+        <Label FontSize="20">
+            Enter your equation below:
+        </Label>
+        <TextBox MinWidth="400" x:Name="equationInput" FontSize="20">
+        </TextBox>
+        <Button x:Name="calculateButton" MinHeight="30" Click="calculateButton_Click">
+            =
+        </Button>
+
+        <Label FontSize="20">
+            Result:
+        </Label>
+        <TextBlock x:Name="equationOutput" FontSize="20">
+
+        </TextBlock>
+    </StackPanel>
 </Window>

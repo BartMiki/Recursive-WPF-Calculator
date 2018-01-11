@@ -24,5 +24,22 @@ namespace Recursive_WPF_Calculator
         {
             InitializeComponent();
         }
+
+        private void calculateButton_Click(object sender, RoutedEventArgs e)
+        {
+            string result = "";
+            try
+            {
+                result = Equation.EquationResult(equationInput.Text);
+            }
+            catch(Exception)
+            {
+                result = "Syntax Error";
+            }
+            finally
+            {
+                equationOutput.Text = result;
+            }
+        }
     }
 }
