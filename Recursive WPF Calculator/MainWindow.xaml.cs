@@ -23,13 +23,28 @@ namespace Recursive_WPF_Calculator
         public MainWindow()
         {
             InitializeComponent();
+            TextBoxs = new List<TextBox>();
         }
+
+        static public Dictionary<String,Double> constantDeclarations { get; private set; }
 
         private void calculateButton_Click(object sender, RoutedEventArgs e)
         {
             string result = "";
             try
             {
+                constantDeclarations = new Dictionary<string, double>();
+                foreach(var tb in TextBoxs)
+                {
+                    if(tb.Text != "")
+                    {
+                        var keyAndValue = tb.Text.Split('=');
+                        string key = keyAndValue[0].Trim();
+                        double value = Convert.ToDouble(keyAndValue[1].Trim());
+                        constantDeclarations.Add(key, value);
+                    }
+
+                }
                 result = Equation.EquationResult(equationInput.Text);
             }
             catch(Exception)
@@ -40,6 +55,17 @@ namespace Recursive_WPF_Calculator
             {
                 equationOutput.Text = result;
             }
+        }
+
+        public List<TextBox> TextBoxs {get; private set; }
+
+        private void NewConstantButton_Click(object sender, RoutedEventArgs e)
+        {
+            TextBox tb = new TextBox();
+            tb.Text = "a = 9";
+            tb.TextAlignment = TextAlignment.Center;
+            TextBoxs.Add(tb);
+            ConstantsContainer.Children.Add(tb);
         }
     }
 }

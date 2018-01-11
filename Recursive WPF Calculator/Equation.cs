@@ -123,6 +123,10 @@ namespace Recursive_WPF_Calculator
         {
             if (leftEquation == null || rightEquation == null)
             {
+                if(MainWindow.constantDeclarations.ContainsKey(equation))
+                {
+                    return MainWindow.constantDeclarations[equation];
+                }
                 return Convert.ToDouble(equation);
             }
             else

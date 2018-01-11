@@ -17,13 +17,23 @@
         <Button x:Name="calculateButton" MinHeight="30" Click="calculateButton_Click">
             =
         </Button>
-
-        <Label FontSize="20">
-            Result:
-        </Label>
-        <TextBlock x:Name="equationOutput" FontSize="20">
-
-        </TextBlock>
+        <StackPanel Orientation="Horizontal">
+            <TextBlock FontSize="20">
+                Result:
+            </TextBlock>
+            <TextBlock x:Name="equationOutput" FontSize="20" TextAlignment="Center">
+                ((54+34)*(23-12))-(5^2)
+            </TextBlock>
+        </StackPanel>
+        <Expander>
+            <Expander.Header>
+                <Label FontSize="15">Constant declarations</Label>
+            </Expander.Header>
+            <StackPanel>
+                <Button x:Name="NewConstantButton" Click="NewConstantButton_Click">Add new Constant</Button>
+                <StackPanel x:Name="ConstantsContainer"/>
+            </StackPanel>
+        </Expander>
         <Expander>
             <Expander.Header>
                 <Label FontSize="15">
