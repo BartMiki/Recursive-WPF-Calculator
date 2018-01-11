@@ -24,5 +24,23 @@
         <TextBlock x:Name="equationOutput" FontSize="20">
 
         </TextBlock>
+        <Expander>
+            <Expander.Header>
+                <Label FontSize="15">
+                    Examples
+                </Label>
+            </Expander.Header>
+            <StackPanel>
+                <Label>
+                    (54+34)*(23-12)
+                </Label>
+                <Label>
+                    (40-21)/(2*25)
+                </Label>
+                <Label>
+                    27^3-13^(2*3)
+                </Label>
+            </StackPanel>
+        </Expander>
     </StackPanel>
 </Window>
