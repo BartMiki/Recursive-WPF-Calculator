@@ -9,51 +9,61 @@
     <Window.Resources>
     </Window.Resources>
     <StackPanel Margin="5">
-        <Label FontSize="20">
+        <Label FontSize="20" HorizontalAlignment="Center">
             Enter your equation below:
         </Label>
-        <TextBox MinWidth="400" x:Name="equationInput" FontSize="20">
-        </TextBox>
-        <Button x:Name="calculateButton" MinHeight="30" Click="calculateButton_Click">
-            =
-        </Button>
-        <StackPanel Orientation="Horizontal">
-            <TextBlock FontSize="20">
-                Result:
-            </TextBlock>
-            <TextBlock Margin="10,0" x:Name="equationOutput" FontSize="20" TextAlignment="Center">
+        <Grid Background="DarkSlateGray" Margin="5,0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width ="10*"></ColumnDefinition>
+                <ColumnDefinition Width="1*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <TextBox BorderBrush="DarkSlateGray" BorderThickness="5" Grid.Column="0" x:Name="equationInput" FontSize="30">
+            </TextBox>
+            <Button Background="DarkSlateGray" BorderBrush="DarkSlateGray" Grid.Column="1" x:Name="calculateButton" FontSize="25" Click="calculateButton_Click">
+                <Label Foreground="White">=</Label>
+            </Button>
+        </Grid>
+        <Grid Margin="5,0" Background="DarkSlateGray">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="2*"></ColumnDefinition>
+                <ColumnDefinition Width="10*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <TextBlock Grid.Column="0" FontSize="25" Padding="5" Foreground="White">Result:</TextBlock>
+            <TextBlock Grid.Column="1" Margin="5" Background="White" x:Name="equationOutput" FontSize="30" TextAlignment="Center">
 
             </TextBlock>
+        </Grid>
+        <StackPanel Background="DarkSlateGray" Margin="5,-1">
+            <Expander Margin="5,0" Background="DarkSlateGray" BorderBrush="DarkSlateGray">
+                <Expander.Header>
+                    <Label FontSize="20" Foreground="White">Constant declarations:</Label>
+                </Expander.Header>
+                <StackPanel>
+                    <UniformGrid Columns="2">
+                        <Button BorderBrush="White" BorderThickness="3" Background="Green" x:Name="NewConstantButton" Click="NewConstantButton_Click">Add new Constant</Button>
+                        <Button BorderBrush="White" BorderThickness="3" Background="Brown" x:Name="RemoveAllEmptyConstatnsButton" Click="RemoveAllEmptyConstatnsButton_Click">Remove empty Constants</Button>
+                    </UniformGrid>
+                    <StackPanel x:Name="ConstantsContainer"/>
+                </StackPanel>
+            </Expander>
+            <Expander Margin="5,0" Background="DarkSlateGray" BorderBrush="DarkSlateGray">
+                <Expander.Header>
+                    <Label FontSize="20" Foreground="White">
+                        Examples
+                    </Label>
+                </Expander.Header>
+                <StackPanel Margin="5" Background="White">
+                    <Label>
+                        (54+34)*(23-12)
+                    </Label>
+                    <Label>
+                        (40-21)/(2*25)
+                    </Label>
+                    <Label>
+                        27^3-13^(2*3)
+                    </Label>
+                </StackPanel>
+            </Expander>
         </StackPanel>
-        <Expander>
-            <Expander.Header>
-                <Label FontSize="15">Constant declarations</Label>
-            </Expander.Header>
-            <StackPanel>
-                <UniformGrid Columns="2">
-                    <Button x:Name="NewConstantButton" Click="NewConstantButton_Click">Add new Constant</Button>
-                    <Button x:Name="RemoveAllEmptyConstatnsButton" Click="RemoveAllEmptyConstatnsButton_Click">Remove empty Constants</Button>
-                </UniformGrid>
-                <StackPanel x:Name="ConstantsContainer"/>
-            </StackPanel>
-        </Expander>
-        <Expander>
-            <Expander.Header>
-                <Label FontSize="15">
-                    Examples
-                </Label>
-            </Expander.Header>
-            <StackPanel>
-                <Label>
-                    (54+34)*(23-12)
-                </Label>
-                <Label>
-                    (40-21)/(2*25)
-                </Label>
-                <Label>
-                    27^3-13^(2*3)
-                </Label>
-            </StackPanel>
-        </Expander>
     </StackPanel>
 </Window>
